@@ -4,22 +4,22 @@ function Node(name) {
   this.moveY = 50;
   this.radius_child = 13;
   this.childIs = false;
+  this.ellipseDiametr = 25;
 
   this.addRight = function(a) {
-    // a.x = this.x + this.moveX;
     a.y = this.y + this.moveY;
 
     if (!this.childIs) {
       this.childIs = true;
-      dx = dx / 2;
-      moveX = moveX / 1.5;
+      tree.dx = tree.dx / 2;
+      tree.moveX = tree.moveX / 1.5;
     }
 
-    a.x = this.x + (moveX);
+    a.x = this.x + (tree.moveX);
 
     a.draw();
     line(a.x, a.y, this.x, this.y);
-  }
+  };
 
   this.addLeft = function(a) {
     //a.x = this.x - this.moveX;
@@ -27,27 +27,27 @@ function Node(name) {
 
     if (!this.childIs) {
       this.childIs = true;
-      //dx = dx / 1.5;
-      moveX = moveX / 1.5;
-      ellipseRadius = ellipseRadius / 2;
-      //dx = dx / 2;
+      //tree.dx = tree.dx / 1.5;
+      tree.moveX = tree.moveX / 1.5;
+      this.ellipseDiametr = this.ellipseDiametr / 2;
+      //tree.dx = tree.dx / 2;
     } 
 
     //line(0, random(600), a.x, random(600))
 
-    a.x = this.x - (moveX);
+    a.x = this.x - (tree.moveX);
     
     a.draw();
 
     line(a.x, a.y, this.x, this.y);
-  }
+  };
 
 
   this.draw = function() {
 
     fill(255);
     stroke(0);
-    ellipse(this.x, this.y, 25, 25);
+    ellipse(this.x, this.y, this.ellipseRadius, this.ellipseRadius);
     fill(0);
 
     if (name !== undefined) {
