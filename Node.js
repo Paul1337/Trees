@@ -47,7 +47,7 @@ function Node(name) {
 
     fill(255);
     stroke(0);
-    ellipse(this.x, this.y, this.ellipseRadius, this.ellipseRadius);
+    ellipse(this.x, this.y, this.ellipseDiametr, this.ellipseDiametr);
     fill(0);
 
     if (name !== undefined) {

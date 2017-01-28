@@ -140,14 +140,14 @@ function parse(str) {
 
         }
 
-        if (xZ < j) {
-            strRight += a;
-        } else {
-            strLeft += a;
-        }
-
-        counterZ++;
-        //continue;
+        // if (xZ < j) {
+        //     strRight += a;
+        // } else {
+        //     strLeft += a;
+        // }
+        //
+        // counterZ++;
+        // //continue;
 
 
         // if (x != ',' && x != ')' && x != '(') {
