@@ -1,5 +1,6 @@
 function setup() {
-    createCanvas(600, 600);
+    createCanvas(800, 600);
+
 
     input = createInput();
     input.position(0, 0);
@@ -14,8 +15,12 @@ function setup() {
 function onClicked() {
     clearScreen();
     tree.create(input.elt.value);
+    console.log(tree);
     tree.draw();
-    tests();
+    //tests();
+    //  eval();
+
+
 }
 
 function tests() {
@@ -93,82 +98,7 @@ function clearScreen() {
     background(255);
 }
 
-function parse(str) {
-    // var x = "";
-    var node = new Node();
-    var counterZ = 0;
-    var parts = 0;
-    var xZ = 0;
-    var strLeft = "";
-    var strRight = "";
-    var posRightZ = 0;
-    var counterNested = 0;
 
-    for (i = 0; i < str.length; i++) {
-        var x = str[i];
-
-        switch (x) {
-            case ",":
-                if (counterNested == 1) {
-                    strLeft = stringAfterPrevBracket(i, str);
-                    strRight = stringUpToNextBracket(i, str);
-
-                    if (strLeft != '') {
-                        node.addLeft(parse(strLeft))
-                    }
-
-                    if (strRight != '') {
-                        node.addRight(parse(strRight))
-                    }
-
-                    return node;
-                }
-
-                break
-
-            case ")": counterNested --;
-                break
-
-            case "(": counterNested ++;
-                break
-
-            default:
-
-                node.name = x;
-                continue;
-
-
-        }
-
-        // if (xZ < j) {
-        //     strRight += a;
-        // } else {
-        //     strLeft += a;
-        // }
-        //
-        // counterZ++;
-        // //continue;
-
-
-        // if (x != ',' && x != ')' && x != '(') {
-        //     node.name = x;
-        // }
-        //
-
-        //     if (x == ',' || x == ')') {
-        //         console.log("found '" + x + "'")
-        //     } else
-        //         console.log("missing token")
-        // }
-        //
-        // continue;
-
-
-    }
-    if (x == '(') {
-
-    }
-}
 
 function stringAfterPrevBracket(position, string) {
     console.log('start');
