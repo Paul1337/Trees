@@ -92,14 +92,14 @@ function Node(name) {
         }
 
         if (this.leftChild !== undefined) {
-            this.leftChild.draw(x - 150 + y * this.kMove, y + 50);
-            line(x - 150 + y * this.kMove, y + 50, x, y);
+            this.leftChild.draw(x - 100 + y * this.kMove, y + 50);
+            line(x - 100 + y * this.kMove, y + 50, x, y);
             // this.leftChild.ellipseDiametr = this.ellipseDiametr / 2;
         }
 
         if (this.rightChild !== undefined) {
-            this.rightChild.draw(x + 150 - y * this.kMove, y + 50);
-            line(x + 150 - y * this.kMove, y + 50, x, y);
+            this.rightChild.draw(x + 100 - y * this.kMove, y + 50);
+            line(x + 100 - y * this.kMove, y + 50, x, y);
             // this.rightChild.ellipseDiametr = this.ellipseDiametr / 2;
         }
 

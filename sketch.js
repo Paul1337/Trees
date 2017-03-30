@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(800, 600);
+    createCanvas(800, 800);
 
 
     input = createInput();
@@ -14,11 +14,16 @@ function setup() {
 
 function onClicked() {
     clearScreen();
+
+    var tokens = ["asd", "asd", "asd"];
+
+    // console.log(getRightPart('5+6-4*18-9+10/2', 1));
+    // console.log(getLeftPart('5+6-4*18-9+10/2', 8));
+
+    //'58*2+3'
+    //console.log(getTokensFrom(input.elt.value));
     tree.create(input.elt.value);
-    console.log(tree);
     tree.draw();
-    //tests();
-    //  eval();
 
 
 }
