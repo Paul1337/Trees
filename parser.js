@@ -130,6 +130,7 @@
 
 function parse(tokens) {
     var node = new Node();
+    var node2 = new Node();
     var leftNode = new Node();
     var rightNode = new Node();
     var leftPart = '';
@@ -140,37 +141,59 @@ function parse(tokens) {
 
         if (tokens.length == 1) {
             node.name = x;
+            // return node;
             // console.log(1);
         }
 
         if ((x == "+") || (x == "-")) {
-            leftNode = node;
-            console.log(leftNode.name);
+            leftNode = Object.assign({}, node);
 
             node.name = x;
 
-            console.log(leftNode.name);
+            // console.log(leftNode.name);
 
             leftPart = getLeftPart(tokens, i);
             rightPart = getRightPart(tokens, i);
 
 
-            if (leftNode.name !== undefined) {
+            if (leftNode.name == undefined) {
                 leftNode = parse(getTokensFrom(leftPart));
             }
 
             rightNode = parse(getTokensFrom(rightPart));
 
-            node.addLeft(rightNode);
-            node.addRight(leftNode);
+            node.addLeft(leftNode);
+            node.addRight(rightNode);
+
+            return node;
         }
+
+        if ((x == "*") || (x == "/")) {
+            // node2 = Object.assign({}, node);
+
+            node.name = x;
+
+            leftPart = getLeftPart(tokens, i);
+            rightPart = getRightPart(tokens, i);
+
+            leftNode = parse(getTokensFrom(leftPart));
+            rightNode = parse(getTokensFrom(rightPart));
+
+            node.addLeft(leftNode);
+            node.addRight(rightNode);
+
+            // return node;
+
+            // node.addRight(node2)
+        }
+
+
 
 
 
     }
 
-
-        return node;
+    return node;
 
 
 

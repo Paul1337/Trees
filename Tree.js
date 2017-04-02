@@ -7,7 +7,7 @@ function Tree() {
     };
 
     this.draw = function() {
-        this.root.draw(400, 500);
+        this.root.draw(400, 50);
     }
 
 }
